@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 protocol ___VARIABLE_ModuleName___ViewModelType {
-    func request(_ request: Request<___VARIABLE_ModuleName___Model>)
+    func request(_ request: Request)
 }
 
 /// define all states of view.
@@ -40,7 +40,7 @@ class ___VARIABLE_ModuleName___ViewModel {
 
 extension ___VARIABLE_ModuleName___ViewModel: ___VARIABLE_ModuleName___ViewModelType {
    
-    func request(_ request: Request<___VARIABLE_ModuleName___Model>){
+    func request(_ request: Request){
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
         isLoading = true

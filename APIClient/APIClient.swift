@@ -16,14 +16,14 @@ enum APIError: Error {
 
 protocol APIClientType{
     @discardableResult
-    func execute<T>(_ request: Request<T>) -> AnyPublisher<Result<T, APIError>, Never> where T: Decodable
+    func execute<T>(_ request: Request) -> AnyPublisher<Result<T, APIError>, Never> where T: Decodable
 }
 
 class APIClient: APIClientType{
     // MARK: - Function
     
     @discardableResult
-    func execute<T>(_ request: Request<T>) -> AnyPublisher<Result<T, APIError>, Never> where T : Decodable {
+    func execute<T>(_ request: Request) -> AnyPublisher<Result<T, APIError>, Never> where T : Decodable {
         guard let request = request.request else {
             return .just(.failure(.networkError))
         }

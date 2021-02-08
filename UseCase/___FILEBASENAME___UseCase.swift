@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 protocol ___VARIABLE_ModuleName___UseCaseType {
-    func request<T: Decodable>(_ request: Request<T>) -> AnyPublisher<Result<T, APIError>, Never>
+    func request(_ request: Request) -> AnyPublisher<Result<___VARIABLE_ModuleName___Model, APIError>, Never>
 }
 
 class ___VARIABLE_ModuleName___UseCase {
@@ -28,7 +28,7 @@ class ___VARIABLE_ModuleName___UseCase {
 // MARK: - Extension
 
 extension ___VARIABLE_ModuleName___UseCase: ___VARIABLE_ModuleName___UseCaseType {
-    func request<T: Decodable>(_ request: Request<T>) -> AnyPublisher<Result<T, APIError>, Never> {
+    func request(_ request: Request) -> AnyPublisher<Result<___VARIABLE_ModuleName___Model, APIError>, Never> {
         return apiClient
             .execute(request)
             .subscribe(on: Scheduler.backgroundWorkScheduler)
